@@ -3,7 +3,7 @@
 % Author: Zewei Zhang
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{zjgsuthesis}[2022/04/10 For ZJGSU thesis.]
+\ProvidesClass{zjgsuthesis}[2022/04/17 For ZJGSU thesis.]
 
 \LoadClass[a4paper, UTF8]{article}
 
