@@ -3,7 +3,7 @@
 % Author: Zewei Zhang
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{zjgsuthesis}[2022/04/17 For ZJGSU thesis.]
+\ProvidesClass{zjgsuthesis}[2022/04/26 For ZJGSU thesis.]
 
 \LoadClass[a4paper, UTF8]{article}
 
@@ -23,6 +23,7 @@
 \RequirePackage{chngcntr}
 \RequirePackage{appendix}
 \RequirePackage{array}
+\RequirePackage{hyperref}
 
 
 \CJKfamily{宋体}
@@ -30,46 +31,46 @@
 %设置章节格式和目录中的显示
 %\titleformat{command}[shape]{format}{label}{sep}{before}[after]
 \titleformat{\section}
-	{\centering\CJKfamily{黑体}\fontsize{15pt}{22.5pt}\bfseries}
-	{第\arabic{section} 章}
-	{1em}
-	{}
+{\centering\CJKfamily{黑体}\fontsize{15pt}{22.5pt}\bfseries}
+{第\arabic{section} 章}
+{1em}
+{}
 
 \titleformat{\subsection}
-	{\CJKfamily{黑体}\fontsize{14pt}{21pt}\bfseries}
-	{\arabic{section}.\arabic{subsection}}
-	{1em}
-	{}
+{\CJKfamily{黑体}\fontsize{14pt}{21pt}\bfseries}
+{\arabic{section}.\arabic{subsection}}
+{1em}
+{}
 
 \titleformat{\subsubsection}
-	{\CJKfamily{黑体}\fontsize{12pt}{18pt}\bfseries}
-	{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-	{1em}
-	{}
+{\CJKfamily{黑体}\fontsize{12pt}{18pt}\bfseries}
+{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+{1em}
+{}
 
 \titlecontents{section}
-	[0em] 										%左间距
-	{\fontsize{12pt}{15pt}}						%有序号节字体格式
-	{\thecontentslabel\hspace{1em}}				%序号，内容格式和距离
-	{\fontsize{12pt}{15pt}}						%无序号字体格式
-	{\titlerule*{.}\contentspage}  			    %中间线
-	[\vspace{0.5em}]							%section上下间距
+[0em] 										%左间距
+{\fontsize{12pt}{15pt}}						%有序号节字体格式
+{\thecontentslabel\hspace{1em}}				%序号，内容格式和距离
+{\fontsize{12pt}{15pt}}						%无序号字体格式
+{\titlerule*{.}\contentspage}  			    %中间线
+[\vspace{0em}]							%section上下间距
 
 \titlecontents{subsection}
-	[2em] 										
-	{\fontsize{12pt}{15pt}}						
-	{\thecontentslabel\hspace{1em}}				
-	{}											
-	{\titlerule*{.}\contentspage}  			    
-	[\vspace{0.5em}]							
+[2em] 										
+{\fontsize{12pt}{15pt}}						
+{\thecontentslabel\hspace{1em}}				
+{}											
+{\titlerule*{.}\contentspage}  			    
+[\vspace{0em}]							
 
 \titlecontents{subsubsection}
-	[4em] 									
-	{\fontsize{12pt}{15pt}}						
-	{\thecontentslabel\hspace{1em}}				
-	{}											
-	{\titlerule*{.}\contentspage}  			   
-	[\vspace{0.5em}]							
+[4em] 									
+{\fontsize{12pt}{15pt}}						
+{\thecontentslabel\hspace{1em}}				
+{}											
+{\titlerule*{.}\contentspage}  			   
+[\vspace{0em}]							
 
 
 %重定义部分命令
@@ -95,7 +96,7 @@
 	\end{minipage}
 }
 \fancyhead[R]{\begin{minipage}[c]{0.2\textwidth}
-	\fontsize{9pt}{11.25pt}\selectfont
+		\fontsize{9pt}{11.25pt}\selectfont
 		毕业论文：正文                           %可修改此处“正文”为“开题报告”，“文献综述”和“外文翻译”
 	\end{minipage}
 }
@@ -118,7 +119,7 @@
 	\newpage	
 	\pagenumbering{Roman}	
 	\setcounter{page}{1}
-	\fontsize{12pt}{16.5pt}\selectfont
+	\fontsize{12pt}{21pt}\selectfont
 }
 
 
@@ -135,6 +136,8 @@
 %中文摘要
 \newcommand{\zhaiyao}[2]{
 	\clearpage
+	~
+	\vspace{-7mm}
 	\section*{摘\hspace{2em}要}
 	\addcontentsline{toc}{section}{摘\hspace{2em}要}
 	
@@ -148,8 +151,10 @@
 %abstract
 \newcommand{\newabstract}[3]{
 	\clearpage
+	~
+	\vspace{-7mm}
 	{
-		\fontspec{Times New Roman}\fontsize{12pt}{15pt}\selectfont
+		\fontspec{Times New Roman}\fontsize{12pt}{21pt}\selectfont
 		\begin{center}
 			\fontsize{15pt}{18.75pt}\selectfont
 			\textbf{#1}
@@ -157,8 +162,9 @@
 		\section*{Abstract}
 		\addcontentsline{toc}{section}{Abstract}
 		
+		\vspace{2mm}
 		#2
-	
+		
 		\vspace{16.5pt}
 		\noindent\textbf{Key Words:}#3
 	}
@@ -168,6 +174,8 @@
 %生成目录
 \newcommand{\directory}{
 	\newpage
+	~
+	\vspace{-7mm}
 	\begin{center}
 		\tableofcontents
 	\end{center}
@@ -203,6 +211,8 @@
 %添加新的附录，参数为附录名
 \newcommand{\newappendix}[1]{
 	\clearpage
+	~
+	\vspace{-7mm}
 	\stepcounter{counterA}
 	\setcounter{table}{0}
 	\setcounter{figure}{0}
@@ -215,9 +225,12 @@
 %添加致谢
 \newcommand{\acknowledgment}{
 	\clearpage
+	~
+	\vspace{-7mm}
 	\section*{致\hspace{2em}谢}
 	\addcontentsline{toc}{section}{致\hspace{2em}谢}
 }
+
 
 
 %自定义数学符号或运算符
@@ -226,4 +239,5 @@
 \DeclareMathOperator\std{std}
 \DeclareMathOperator\poly{poly}
 \DeclareMathOperator\polylog{polylog}
+
 
